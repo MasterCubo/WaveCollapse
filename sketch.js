@@ -113,7 +113,7 @@ function draw() {
     gridCopy.sort((a,b) => {
         return a.options.length - b.options.length;
     });
-
+    
     let len = gridCopy[0].options.length;
     let stopIndex = 0;
     for (let i = 1; i < gridCopy.length; i++) {
@@ -128,7 +128,7 @@ function draw() {
     cell.collapsed = true;
     const pick = random(cell.options);
     if (pick === undefined) {
-        startOver();
+        startOver(); 
         return;
     }
     cell.options = [pick];
