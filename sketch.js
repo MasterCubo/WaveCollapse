@@ -1,5 +1,5 @@
 // globals
-const DIM = 40;
+const DIM = 20;
 
 const tiles = [];
 const tileImages = [];
@@ -16,19 +16,44 @@ const LEFT = 4;
 
 
 function preload() {
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < 13; i++){
         tileImages[i] = loadImage(`${i}.png`);
     }
 
 }
 
+function mouseClicked() {
+    startOver();
+}
+
 function setup() {
     createCanvas(CDIM,CDIM);
-    tiles[0] = new Tile(tileImages[0], [0,0,0,0]);
-    tiles[1] = new Tile(tileImages[1], [1,1,0,1]);
-    tiles[2] = new Tile(tileImages[2], [1,1,1,0]);
-    tiles[3] = new Tile(tileImages[3], [0,1,1,1]);
-    tiles[4] = new Tile(tileImages[4], [1,0,1,1]);
+    // A is black
+    // B is yellow
+    // C is red
+    // D is blue
+    // E is white
+    tiles[0] = new Tile(tileImages[0], ["AAA","AAA","AAA","AAA"]);
+    tiles[1] = new Tile(tileImages[1], ["BBB","BBB","BBB","BBB"]);
+    tiles[2] = new Tile(tileImages[2], ["ABB","BBB","BBA","AAA"]);
+    tiles[3] = new Tile(tileImages[3], ["AAA","ABB","BBA","AAA"]);
+    tiles[4] = new Tile(tileImages[4], ["CCC","CCC","CCC","CCC"]);
+    tiles[5] = new Tile(tileImages[5], ["ACC","CCC","CCA","AAA"]);
+    tiles[6] = new Tile(tileImages[6], ["AAA","ACC","CCA","AAA"]);
+    tiles[7] = new Tile(tileImages[7], ["DDD","DDD","DDD","DDD"]);
+    tiles[8] = new Tile(tileImages[8], ["ADD","DDD","DDA","AAA"]);
+    tiles[9] = new Tile(tileImages[9], ["AAA","ADD","DDA","AAA"]);
+    tiles[10] = new Tile(tileImages[10], ["EEE","EEE","EEE","EEE"]);
+    tiles[11] = new Tile(tileImages[11], ["AEE","EEE","EEA","AAA"]);
+    tiles[12] = new Tile(tileImages[12], ["AAA","AEE","EEA","AAA"]);
+
+
+    // rotate all tiles
+    for (let i = 2; i < 14; i++) {
+        for (let j = 1; j < 4; j++) {
+          tiles.push(tiles[i].rotate(j));
+        }
+      }
 
     for (let i = 0; i < tiles.length ; i++) {
         const tile = tiles[i];
