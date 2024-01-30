@@ -1,5 +1,5 @@
 // globals
-const DIM = 40;
+const DIM = 20;
 
 const tiles = [];
 const tileImages = [];
@@ -54,6 +54,10 @@ function checkValid(arr, valid) {
             arr.splice(i,1);
         }
     }
+}
+
+function mouseClicked() {
+    startOver();
 }
 
 function draw() {
